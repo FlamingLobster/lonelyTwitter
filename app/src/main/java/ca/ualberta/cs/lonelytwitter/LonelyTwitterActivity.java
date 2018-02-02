@@ -32,7 +32,10 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-
+/**
+ * main activity of the app
+ * displays list of tweets as well as input box for entering new tweets
+ */
 public class LonelyTwitterActivity extends Activity {
 
 	private static final String FILENAME = "newfile.sav";
@@ -82,7 +85,6 @@ public class LonelyTwitterActivity extends Activity {
 		});
 	}
 
-
 		protected void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
@@ -92,6 +94,11 @@ public class LonelyTwitterActivity extends Activity {
 		oldTweetsList.setAdapter(adapter);
 	}
 
+	/**
+	 * serialize the array of tweets and write to file
+	 * @throws FileNotFoundException - when file is not found
+	 * @throws IOException - catch all for other errors
+	 */
 	private void loadFromFile() {
 
 		try {
@@ -116,7 +123,12 @@ public class LonelyTwitterActivity extends Activity {
 		}
 
 	}
-	
+
+	/**
+	 * unserialize an array of tweets read from file
+	 * @throws FileNotFoundException - file not found
+	 * @throws IOException - catchall for other errors
+	 */
 	private void saveInFile() {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,

@@ -15,15 +15,27 @@ package ca.ualberta.cs.lonelytwitter;
 import java.util.Date;
 
 public class NormalTweet extends Tweet {
-    NormalTweet(String message){
-        super(message);
 
-    }
+    /**
+     * constructor a tweet instance with message
+     * @param message - messsage of the tweet
+     */
+    NormalTweet(String message){ super(message); }
 
+    /**
+     * constructd a tweet instance with message and date
+     * @param message - message of the tweet
+     * @param date - date of the tweet
+     */
     NormalTweet(String message, Date date){
         super(message,date);
     }
 
+    /**
+     * flag used to keep track of importance of tweet
+     * @return true if false if tweet is NormalTweet
+     * @see ImportantTweet
+     */
     @Override
     public boolean isImportant(){
         return false;

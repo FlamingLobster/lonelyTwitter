@@ -38,21 +38,34 @@ public abstract class Tweet implements Tweetable{
     /**
      * construts a tweet instance using the given message
      *
-     * @param message: the message of the tweet
+     * @param message - the message of the tweet
      */
     public Tweet(String message){
         this.message = message;
     }
 
+    /**
+     * construts a tweet instance using given message and given date
+     * @param message - the message of the tweet
+     * @param date - the date of the tweet
+     */
     public Tweet(String message, Date date){
         this.message = message;
         this.date = date;
     }
 
+    /**
+     * getter for the date of the tweet
+     * @return the date of the tweet
+     */
     public Date getDate(){
         return date;
-
     }
+
+    /**
+     * getter for the message of the tweet
+     * @return the message of the tweet
+     */
     public String getMessage(){
         return message;
     }
@@ -72,16 +85,27 @@ public abstract class Tweet implements Tweetable{
             // throw an error
             throw new TweetTooLongException();
         }
-
         this.message = message;
     }
 
+    /**
+     * set the date of the tweet
+     * @param date - the date of the tweet
+     */
     public void setDate(Date date){
         this.date = date;
     }
 
+    /**
+     * flag for is the tweet important
+     * @return true if tweet is important, false otherwise
+     */
     public abstract boolean isImportant();
 
+    /**
+     * overrides toString() by returning messsage of the tweet
+     * @return message of the tweet
+     */
     @Override
     public String toString(){
         return message;
