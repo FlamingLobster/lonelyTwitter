@@ -1,3 +1,11 @@
+/*
+ *  Copyright © 2018 Team X, CMPUT301, University of Alberta - All Rights Reserved.
+ * You may use, distribute or modify this code under terms and conditions of Code of Student Behavior at
+ * University of Alberta.
+ * You can find a copy of the license in this project. Otherwise, please contact contact@abc.ca
+ * /
+ */
+
 package ca.ualberta.cs.lonelytwitter;
 
 /**
@@ -5,6 +13,18 @@ package ca.ualberta.cs.lonelytwitter;
  */
 
 import java.util.Date;
+
+/**
+ * Represents a tweet
+ *
+ * @author Michael
+ *
+ * @version 1.0
+ *
+ * @see ImportantTweet
+ * @see NormalTweet
+ */
+
 
 public abstract class Tweet implements Tweetable{
 
@@ -14,6 +34,12 @@ public abstract class Tweet implements Tweetable{
     Tweet(){
 
     }
+
+    /**
+     * construts a tweet instance using the given message
+     *
+     * @param message: the message of the tweet
+     */
     public Tweet(String message){
         this.message = message;
     }
@@ -27,11 +53,20 @@ public abstract class Tweet implements Tweetable{
         return date;
 
     }
-
     public String getMessage(){
         return message;
     }
 
+
+    /**
+     * set the message of the tweet
+     *
+     * @param message - the new message of the tweet
+     * @throws TweetTooLongException - is thrown when the message is over 140 characters
+     *
+     * @see ImportantTweet
+     * @see NormalTweet
+     */
     public void setMessage(String message) throws TweetTooLongException{
         if(message.length() > 160){
             // throw an error
